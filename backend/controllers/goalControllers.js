@@ -22,4 +22,15 @@ const createGoals=async (req,res)=>{
     }
 }
 
-module.exports = { getGoals,createGoals};
+const deleteGoal = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Goal.findByIdAndDelete(id);
+    res.status(200).json({ msg: 'Goal deleted' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ msg: 'Delete failed' });
+  }
+};
+
+module.exports = { getGoals,createGoals,deleteGoal};
