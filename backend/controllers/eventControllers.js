@@ -1,4 +1,4 @@
-const Events=require('../models/event')
+const Events=require('../models/Event')
 
 const getEvent=async (req,res)=>{
     try{
