@@ -14,7 +14,7 @@ const getEvent = async (req, res) => {
   }
 };
 
-// POST create new event
+
 const createEvent = async (req, res) => {
   try {
     console.log('📝 Received body:', req.body);
@@ -29,7 +29,7 @@ const createEvent = async (req, res) => {
 
 // PUT update event (used for resize)
 const updateEvent = async (req, res) => {
-  try {
+  try { 
     const id = req.params.id;
     const updatedEvent = await Events.findByIdAndUpdate(id, req.body, {
       new: true,
@@ -39,7 +39,7 @@ const updateEvent = async (req, res) => {
       return res.status(404).json({ msg: 'Event not found!' });
     }
 
-    return res.status(200).json(updatedEvent); // ✅ send whole updated event with _id
+    return res.status(200).json(updatedEvent); 
   } catch (err) {
     console.error(err.message);
     return res.status(500).json({ msg: 'Server error!' });
